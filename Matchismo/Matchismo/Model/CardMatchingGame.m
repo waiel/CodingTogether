@@ -72,14 +72,17 @@
                     }else{
                         otherCards.faceUp = NO;
                         self.score -= MISMATCH_PENALTY;
-                        
                         if(otherCards.isFaceUp){
-                        self.description = [NSString stringWithFormat:@"%@ & %@ Doesn't match %d penality",card.contents,otherCards.contents,MISMATCH_PENALTY];
+                            self.description = [NSString stringWithFormat:@"%@ & %@ Doesn't match %d penality",card.contents,otherCards.contents,MISMATCH_PENALTY];
+                            
                             
                         }else{
                             self.description = [NSString stringWithFormat:@"You Flipped: %@",card.contents];
                         }
+                        
+                        
                     }
+                    
                     break;
                 }else{
                     self.description = [NSString stringWithFormat:@"You Flipped: %@",card.contents];
