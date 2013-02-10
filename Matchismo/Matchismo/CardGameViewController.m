@@ -46,6 +46,7 @@
 {
     _cardButtons = cardButtons;
     [self updateUI];
+// replaced with a updateUi method
 //
 //    for (UIButton *cardButton in cardButtons){
 //        Card *card = [self.deck drawRandomCard];
