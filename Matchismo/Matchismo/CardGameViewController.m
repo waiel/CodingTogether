@@ -20,7 +20,7 @@
 @end
 
 @implementation CardGameViewController
-
+//removed no need for it
 //- (Deck *)deck
 //{
 //    if(!_deck){
