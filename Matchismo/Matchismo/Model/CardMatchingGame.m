@@ -12,6 +12,7 @@
 @interface CardMatchingGame()
 @property (strong,nonatomic) NSMutableArray *cards;
 @property (nonatomic) int score;
+@property (nonatomic) NSString *description;
 @end
 
 @implementation CardMatchingGame
@@ -67,11 +68,21 @@
                         otherCards.unplayable = YES;
                         card.unplayable = YES;
                         self.score += matchScore * MATCH_BONUS;
+                        self.description = [NSString stringWithFormat:@"You Matched %@ & %@ for %d",card.contents,otherCards.contents,matchScore * MATCH_BONUS];
                     }else{
                         otherCards.faceUp = NO;
                         self.score -= MISMATCH_PENALTY;
+                        
+                        if(otherCards.isFaceUp){
+                        self.description = [NSString stringWithFormat:@"%@ & %@ Doesn't match %d penality",card.contents,otherCards.contents,MISMATCH_PENALTY];
+                            
+                        }else{
+                            self.description = [NSString stringWithFormat:@"You Flipped: %@",card.contents];
+                        }
                     }
                     break;
+                }else{
+                    self.description = [NSString stringWithFormat:@"You Flipped: %@",card.contents];
                 }
             }
             self.score -= FLIP_COST;

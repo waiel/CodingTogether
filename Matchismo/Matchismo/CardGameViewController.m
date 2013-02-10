@@ -17,6 +17,8 @@
 //@property (strong,nonatomic) Deck *deck;
 @property (strong,nonatomic) CardMatchingGame *game;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
+@property (weak, nonatomic) IBOutlet UIButton *dealButton;
 @end
 
 @implementation CardGameViewController
@@ -65,7 +67,7 @@
         cardButton.alpha = card.isUnplayable ? 0.3 : 1.0 ;
         
     }
-    
+    self.descriptionLabel.text = [NSString stringWithFormat:@"%@",self.game.description];
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d",self.game.score];
     
 }
@@ -83,6 +85,14 @@
     [self.game flipCardAtIndex:[self.cardButtons indexOfObject:sender]];
     self.flipCount++;
     [self updateUI];
+}
+
+- (IBAction)dealGame {
+    self.game = nil;
+    [self game];
+    [self setFlipCount:0];
+    [self updateUI];
+    self.descriptionLabel.text = @"";
 }
 
 @end
