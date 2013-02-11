@@ -282,15 +282,15 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="let's Play" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="M2B-3g-vFE">
-                                <rect key="frame" x="20" y="321" width="280" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Match Cards by Suit or rank" textAlignment="center" lineBreakMode="wordWrap" adjustsFontSizeToFit="NO" id="M2B-3g-vFE">
+                                <rect key="frame" x="20" y="321" width="280" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bg2-CB-5rk">
-                                <rect key="frame" x="227" y="350" width="73" height="44"/>
+                                <rect key="frame" x="227" y="377" width="73" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Deal">
@@ -305,9 +305,19 @@
                                 </connections>
                             </button>
                             <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="4Ic-Em-Phw">
-                                <rect key="frame" x="20" y="358" width="79" height="27"/>
+                                <rect key="frame" x="20" y="384" width="79" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="gameModeSwitch:" destination="2" eventType="valueChanged" id="fxm-vr-WXl"/>
+                                </connections>
                             </switch>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="0.0" id="5SO-am-mgv">
+                                <rect key="frame" x="18" y="347" width="284" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="historySlider:" destination="2" eventType="valueChanged" id="lt1-5v-qgb"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -315,6 +325,8 @@
                         <outlet property="dealButton" destination="bg2-CB-5rk" id="kOk-rd-951"/>
                         <outlet property="descriptionLabel" destination="M2B-3g-vFE" id="Vhy-hG-T2C"/>
                         <outlet property="flipLabel" destination="nRe-6x-AUG" id="xKE-Sc-snG"/>
+                        <outlet property="gameMode" destination="4Ic-Em-Phw" id="h0B-Dp-jby"/>
+                        <outlet property="historySlider" destination="5SO-am-mgv" id="uqK-PW-uos"/>
                         <outlet property="scoreLabel" destination="OAD-Js-hgK" id="lhs-y3-2Pk"/>
                         <outletCollection property="cardButtons" destination="3cP-f1-Qtc" id="5wR-xz-LJC"/>
                         <outletCollection property="cardButtons" destination="Ab9-Co-23s" id="Fey-nU-Tg1"/>
@@ -344,9 +356,13 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CardGameViewController.h"/>
             <relationships>
                 <relationship kind="action" name="flipCard:" candidateClass="UIButton"/>
+                <relationship kind="action" name="gameModeSwitch:" candidateClass="UISwitch"/>
+                <relationship kind="action" name="historySlider:" candidateClass="UISlider"/>
                 <relationship kind="outlet" name="dealButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="descriptionLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="flipLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="gameMode" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="historySlider" candidateClass="UISlider"/>
                 <relationship kind="outlet" name="scoreLabel" candidateClass="UILabel"/>
                 <relationship kind="outletCollection" name="cardButtons" candidateClass="UIButton"/>
             </relationships>
