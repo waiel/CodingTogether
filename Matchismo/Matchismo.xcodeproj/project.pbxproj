@@ -23,6 +23,7 @@
 		960DC60F16C63D8700CBF64F /* PlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 960DC60E16C63D8700CBF64F /* PlayingCard.m */; };
 		960DC61216C641A700CBF64F /* PlayingCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 960DC61116C641A700CBF64F /* PlayingCardDeck.m */; };
 		960DC64416C66F5600CBF64F /* CardMatchingGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 960DC64316C66F5600CBF64F /* CardMatchingGame.m */; };
+		964D9A8816C97C64007B1F7A /* card.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 964D9A8716C97C63007B1F7A /* card.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		960DC61116C641A700CBF64F /* PlayingCardDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayingCardDeck.m; path = Model/PlayingCardDeck.m; sourceTree = "<group>"; };
 		960DC64216C66F5600CBF64F /* CardMatchingGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardMatchingGame.h; path = Model/CardMatchingGame.h; sourceTree = "<group>"; };
 		960DC64316C66F5600CBF64F /* CardMatchingGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CardMatchingGame.m; path = Model/CardMatchingGame.m; sourceTree = "<group>"; };
+		964D9A8716C97C63007B1F7A /* card.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = card.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 		960DC5D716C62F9B00CBF64F = {
 			isa = PBXGroup;
 			children = (
+				964D9A8716C97C63007B1F7A /* card.jpg */,
 				960DC5E916C62F9B00CBF64F /* Matchismo */,
 				960DC5E216C62F9B00CBF64F /* Frameworks */,
 				960DC5E116C62F9B00CBF64F /* Products */,
@@ -197,6 +200,7 @@
 				960DC5F816C62F9B00CBF64F /* Default@2x.png in Resources */,
 				960DC5FA16C62F9B00CBF64F /* Default-568h@2x.png in Resources */,
 				960DC5FD16C62F9B00CBF64F /* MainStoryboard.storyboard in Resources */,
+				964D9A8816C97C64007B1F7A /* card.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
