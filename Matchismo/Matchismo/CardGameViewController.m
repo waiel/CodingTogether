@@ -37,7 +37,7 @@
 
 - (CardMatchingGame *)game
 {
-    if(!_game) _game= [[CardMatchingGame alloc] initWithCardCount:self.cardButtons.count gameMode:(self.gameMode ? 2:1) usingDeck:[[PlayingCardDeck alloc] init]];
+    if(!_game) _game= [[CardMatchingGame alloc] initWithCardCount:self.cardButtons.count gameMode:(self.gameMode.on ? 2:1) usingDeck:[[PlayingCardDeck alloc] init]];
     return _game;
 }
 
@@ -58,6 +58,8 @@
 //update interface.
 - (void)updateUI
 {
+   
+    
     for(UIButton *cardButton in self.cardButtons){
         Card *card = [self.game  cardAtIndex:[self.cardButtons indexOfObject:cardButton]];
         [cardButton setTitle:card.contents forState:UIControlStateSelected];
@@ -66,9 +68,16 @@
         cardButton.enabled = !card.unplayable;
         cardButton.alpha = card.isUnplayable ? 0.3 : 1.0 ;
         
+        if(!cardButton.selected){
+            [cardButton setImage:[UIImage imageNamed:@"card.jpg"] forState:UIControlStateNormal];
+        }else{
+            [cardButton setImage:nil forState:UIControlStateNormal];
+        }
+
     }
     self.historySlider.maximumValue = (float) self.game.gameHistory.count-1;
     self.historySlider.value = self.historySlider.maximumValue;
+    self.descriptionLabel.alpha = 1.0;
     self.descriptionLabel.text = [self.game.gameHistory lastObject];
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d",self.game.score];
     self.flipLabel.text = [NSString stringWithFormat:@"Flips: %d",self.game.flipCount];
@@ -86,9 +95,7 @@
 - (IBAction)flipCard:(UIButton *)sender
 {
     [self.game flipCardAtIndex:[self.cardButtons indexOfObject:sender]];
-    self.historySlider.enabled = YES;
-    self.dealButton.enabled = YES;
-    self.gameMode.enabled = YES;
+    self.gameMode.enabled = NO;
 //    self.flipCount++;
     [self updateUI];
 }
@@ -99,11 +106,8 @@
     //reset game
     self.game = nil;
     
-    //disable buttons & sliders
-    self.historySlider.enabled = NO;
     self.historySlider.minimumValue=0;
-    self.dealButton.enabled = NO;
-    self.gameMode.enabled = NO;
+    self.gameMode.enabled = YES;
     
     //update UI
     [self updateUI];
@@ -111,9 +115,11 @@
 }
 - (IBAction)historySlider:(UISlider *)sender {
     self.descriptionLabel.text = self.game.gameHistory[(int) sender.value];
+    self.descriptionLabel.alpha = 0.3;
 }
 
 - (IBAction)gameModeSwitch:(UISwitch *)sender {
+    NSLog(@"Switch changed to: %c",self.gameMode.on);
     [self dealGame];
 }
 
