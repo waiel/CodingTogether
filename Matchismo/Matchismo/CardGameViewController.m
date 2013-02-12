@@ -12,9 +12,7 @@
 
 @interface CardGameViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *flipLabel;
-//@property (nonatomic) int flipCount;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
-//@property (strong,nonatomic) Deck *deck;
 @property (strong,nonatomic) CardMatchingGame *game;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
@@ -24,15 +22,6 @@
 @end
 
 @implementation CardGameViewController
-//removed no need for it
-//- (Deck *)deck
-//{
-//    if(!_deck){
-//        _deck = [[PlayingCardDeck alloc] init];
-//    }
-//    return _deck;
-//}
-
 
 
 - (CardMatchingGame *)game
@@ -46,12 +35,6 @@
 {
     _cardButtons = cardButtons;
     [self updateUI];
-// replaced with a updateUi method
-//
-//    for (UIButton *cardButton in cardButtons){
-//        Card *card = [self.deck drawRandomCard];
-//        [cardButton setTitle:card.contents forState:UIControlStateSelected];
-//    }
 }
 
 
@@ -84,34 +67,21 @@
 
 }
 
-//update flip counter
-//-(void)setFlipCount:(int)flipCount
-//{
-//    _flipCount = flipCount;
-//   // self.flipLabel.text = [NSString stringWithFormat:@"Flips: %d",self.flipCount];
-//   // NSLog(@"Flips updated to %d",self.flipCount);
-//}
 
 - (IBAction)flipCard:(UIButton *)sender
 {
     [self.game flipCardAtIndex:[self.cardButtons indexOfObject:sender]];
     self.gameMode.enabled = NO;
-//    self.flipCount++;
     [self updateUI];
 }
 
 
 // reset game.
 - (IBAction)dealGame {
-    //reset game
     self.game = nil;
-    
     self.historySlider.minimumValue=0;
     self.gameMode.enabled = YES;
-    
-    //update UI
     [self updateUI];
-  //  self.descriptionLabel.text = @"";
 }
 - (IBAction)historySlider:(UISlider *)sender {
     self.descriptionLabel.text = self.game.gameHistory[(int) sender.value];
@@ -119,7 +89,6 @@
 }
 
 - (IBAction)gameModeSwitch:(UISwitch *)sender {
-    NSLog(@"Switch changed to: %c",self.gameMode.on);
     [self dealGame];
 }
 

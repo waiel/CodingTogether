@@ -10,8 +10,6 @@
 #import "Deck.h"
 
 @interface CardMatchingGame : NSObject
-//update initilization to take game mode
-//- (id)initWithCardCount:(NSUInteger)cardCount usingDeck:(Deck *)deck;
 
 - (id)initWithCardCount:(NSUInteger)cardCount gameMode:(int)gameMode usingDeck:(Deck *)deck;
 
